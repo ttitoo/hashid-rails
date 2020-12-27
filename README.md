@@ -93,7 +93,7 @@ the Hashids gem. This is completely optional. The configuration below shows the
 default options.
 
 ```ruby
-Hashid::Rails.configure do |config|
+HashidRails.configure do |config|
   # The salt to use for generating hashid. Prepended with pepper (table name).
   config.salt = ""
   config.pepper = table_name
@@ -120,7 +120,7 @@ end
 ### Model-Level Config
 
 You can also customize the hashid configuration at the model level.
-`hashid_config` supports all the same options as the `Hashid::Rails.configure`
+`hashid_config` supports all the same options as the `HashidRails.configure`
 block and allows for each model to have a different config. This can be useful
 for setting a custom salt/pepper. For instance, the pepper defaults to the table
 name, so if you rename the table, you can keep the same hashids by setting the
