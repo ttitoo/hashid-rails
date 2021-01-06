@@ -94,6 +94,22 @@ module HashidRails
       end
     end
 
+    def find_by(*args)
+      if args.length == 1 && args.first.is_a?(Hash) && args.first.keys.first.to_sym == :hashid
+        find_by_hashid(args.first.values.first)
+      else
+        super
+      end
+    end
+
+    def find_by!(*args)
+      if args.length == 1 && args.first.is_a?(Hash) && args.first.keys.first.to_sym == :hashid
+        find_by_hashid!(args.first.values.first)
+      else
+        super
+      end
+    end
+
     def find_by_hashid(hashid)
       find_by(id: decode_id(hashid, fallback: false))
     end
